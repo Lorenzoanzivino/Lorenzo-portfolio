@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. CONFIGURAZIONE VARIABILI & RESETS */
+:root {
+  --brand-cream: #F4F4F0;
+  --brand-navy: #0F172A;
+  --brand-blue: #334155;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Ottimizzazione del rendering del testo a livello globale */
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  @apply bg-brand-cream text-brand-navy antialiased transition-colors duration-300;
+  /* Rendering editoriale ultra-nitido */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. SCROLLBAR CINEMATIC (Cross-browser) */
+/* Chrome, Safari, Edge e Opera */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2); /* Navy molto leggero */
+  border-radius: 20px;
+  border: 2px solid transparent; /* Crea un effetto di padding */
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.6);
+  background-clip: content-box;
+}
+
+/* Supporto Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.2) transparent;
+}
+
+/* 3. SELECTION & FOCUS */
+::selection {
+  background-color: var(--brand-navy);
+  color: #ffffff;
+}
+
+/* Focus visibile ma elegante per l'accessibilità */
+:focus-visible {
+  @apply outline-none ring-2 ring-brand-navy/20;
+}
+
+/* 4. UTILITIES AVANZATE (Layer Utilities) */
+@layer utilities {
+  /* Ombre per testi sopra video/immagini */
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Effetto "Vetro" per elementi UI sopra sfondi complessi */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/80 border border-white/20;
+  }
+
+  /* Overlay per immagini nel Portfolio */
+  .image-overlay-dark {
+    background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 0.4) 100%);
+  }
+
+  /* Animazione fluida per i link nel testo */
+  .link-underline {
+    @apply relative overflow-hidden;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+/* 5. FIX PER I VIDEO (Hero Section) */
+video {
+  filter: brightness(0.9) contrast(1.1); /* Piccola correzione colore per look cinematografico */
+}
