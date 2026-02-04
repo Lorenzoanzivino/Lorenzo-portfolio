@@ -58,15 +58,17 @@ Il progetto segue il paradigma della separazione delle responsabilità:
 Il codice è organizzato in modo modulare per facilitare la manutenzione:
 
 ```text
-├── frontend/                   # Applicazione Client-side
-│   ├── src/components/         # Navbar, Hero, ProjectCard, etc.
-│   ├── src/ui/                 # Componenti riutilizzabili per animazioni (Reveal)
-│   └── tailwind.config.js      # Configurazione del Brand System
-├── backend/                    # Server-side API
-│   ├── app/routes/             # Logica degli endpoint (contact.py)
-│   ├── .env.example            # Schema per le variabili d'ambiente (SMTP/Security)
-│   └── run.py                  # Punto di ingresso dell'applicazione
-└── struttura-progetto.txt      # Documentazione dell'albero directory
+├── frontend/                   # Applicazione Client-side (React + Vite)
+│   ├── src/components/         # Componenti modulari dell'interfaccia
+│   ├── src/data/               # Single Source of Truth per i contenuti (content.js)
+│   ├── src/services/           # Logiche per le chiamate API verso il backend
+│   └── tailwind.config.js      # Definizione del Brand System e Design Tokens
+├── backend/                    # Server-side API (Flask)
+│   ├── app/routes/             # Definizione degli endpoint e logica di business
+│   ├── tests/                  # Suite di test automatizzati (Pytest)
+│   ├── htmlcov/                # Report grafici della Code Coverage
+│   └── run.py                  # Entry point e configurazione dell'applicazione
+└── README.md                   # Documentazione tecnica e architetturale
 ```
 
 ---
