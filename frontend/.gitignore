@@ -29,3 +29,10 @@ repomix-*.md
 
 # Production
 build/
+
+venv/
+__pycache__/
+node_modules/
+htmlcov/
+.pytest_cache/
+.env

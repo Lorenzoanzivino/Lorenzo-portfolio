@@ -1,22 +1,38 @@
-# ========= Frontend =========
-node_modules/
-dist/
-build/
-
-# ========= Backend (Python) =========
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.coverage
-htmlcov/
-
-# ========= Virtual env =========
-venv/
-ENV/
-
-# ========= Environment & OS =========
-.env
+# --- SISTEMA OPERATIVO ---
 .DS_Store
+Thumbs.db
 
-# ========= Logs =========
+# --- BACKEND (Python/Flask) ---
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.pytest_cache/
+backend/htmlcov/
+backend/.env
+# Escludi eventuali database locali se presenti
+backend/*.db
+backend/*.sqlite3
+
+# --- FRONTEND (React/Node) ---
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/*.local
+frontend/.env
+frontend/.env.local
+
+# --- LOGS & CACHE ---
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- AI & DOCUMENTAZIONE (Opzionale) ---
+# Se vuoi che i file repomix rimangano solo locali:
+repomix-*.md
+struttura-progetto.txt
+struttura-progetto.md
+
+# --- IDE (VS Code / JetBrains) ---
+.vscode/
+.idea/

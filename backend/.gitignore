@@ -7,3 +7,10 @@ ENV/
 
 # Repomix
 repomix-*.md
+
+venv/
+__pycache__/
+node_modules/
+htmlcov/
+.pytest_cache/
+.env
