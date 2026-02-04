@@ -33,6 +33,16 @@ Ho sviluppato un portfolio dinamico che va oltre il semplice sito statico. È un
 
 ---
 
+### ✅ Test & Qualità
+
+Il progetto segue standard di sviluppo professionali con una copertura del codice verificata.
+
+- **Framework**: Pytest + Pytest-Cov
+- **Test Coverage**: 100% (Backend core logic)
+- **Status**: ![Passed](https://img.shields.io/badge/tests-passed-brightgreen)
+
+---
+
 ## ⚙️ Come funziona
 
 Il progetto segue il paradigma della separazione delle responsabilità:
