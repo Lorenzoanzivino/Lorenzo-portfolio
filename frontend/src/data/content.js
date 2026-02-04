@@ -4,6 +4,7 @@ export const CONTENT = {
     LINK_HOME: "Home",
     LINK_EXPERTISE: "Competenze",
     LINK_PROJECTS: "Progetti",
+    LINK_ABOUT: "Chi sono",
     CTA_COLLABORATE: "COLLABORIAMO",
     ARIA_OPEN: "Apri menu",
     ARIA_CLOSE: "Chiudi menu",
@@ -18,55 +19,63 @@ export const CONTENT = {
     CTA_CONTACT: "PARLIAMO DI IDEE",
     LABEL_SCROLL: "SCROLL",
   },
+  // Aggiungi o aggiorna in src/data/content.js
   SERVICES: {
     BLOCK_01: {
-      LABEL: "01 — UI/UX & Mobile-First",
-      TITLE: "Interface \n Engineering.",
+      LABEL: "01 — Frontend Development",
+      TITLE: "Interfacce \n Reattive.",
       DESCRIPTION:
-        "Progettazione di interfacce intuitive e sistemi visivi coerenti. Un approccio orientato all'utente che unisce estetica e funzionalità attraverso una meticolosa fase di analisi dei requisiti e prototipazione.",
+        "Sviluppo UI moderne e performanti con focus sulla User Experience. Utilizzo i tool più recenti per garantire velocità di caricamento e interazioni fluide.",
       ITEMS: [
-        "Mobile-First Design Systems",
-        "UI/UX per Web & App Mobile",
-        "Prototipazione Interattiva",
-        "Asset Grafici Ottimizzati",
+        "React 19 & React Hooks",
+        "Tailwind CSS & Vite",
+        "Framer Motion (Animations)",
+        "UI/UX Design Patterns",
       ],
-      CTA: "VEDI APPROCCIO DESIGN",
+      CTA: "ESPLORA IL CODICE",
+      HREF: "https://github.com/Lorenzoanzivino/Lorenzo-portfolio",
+      EXTERNAL: true,
     },
     BLOCK_02: {
-      LABEL: "02 — Backend & Cloud Architecture",
-      TITLE: "Scalable \n Solutions.",
+      LABEL: "02 — Backend & Architecture",
+      TITLE: "Sistemi & \n Logiche.",
       DESCRIPTION:
-        "Sviluppo di logiche server-side robuste e architetture cloud-ready. Dalle API in Flask ai moduli Enterprise in Java/Spring, con focus su integrità dei dati e performance elevate.",
+        "Progettazione di architetture server-side robuste e scalabili. Gestione efficiente del dato e implementazione di logiche di business complesse.",
       ITEMS: [
-        "Backend Dev (Python / Java)",
-        "Database Relazionali & Cloud",
-        "API Design & Integrazione",
-        "Cyber Security Fundamentals",
+        "Python Flask & REST API",
+        "Java & Spring Boot",
+        "PostgreSQL / SQLite",
+        "Database Design & Auth",
       ],
-      CTA: "VEDI STACK TECNICO",
+      CTA: "ANALISI BACKEND",
+      HREF: "https://github.com/Lorenzoanzivino/MyTrainUp-public",
+      EXTERNAL: true,
     },
     BLOCK_03: {
       LABEL: "03 — Full-Stack Lifecycle",
-      TITLE: "Ingegneria del Prodotto",
+      TITLE: "Sinergia Totale",
       DESCRIPTION:
-        "Gestione dell'intero ciclo di vita del software: dall'analisi funzionale al deploy. Un workflow strutturato che garantisce soluzioni scalabili, sicure e tecnicamente solide.",
+        "Unisco Frontend e Backend in un unico ecosistema scalabile, gestendo l'intero ciclo di vita del prodotto, dall'analisi al deployment.",
       GRID: [
         {
-          t: "Sinergia",
-          d: "Integrazione fluida tra backend e frontend, con gestione dati complessi tramite JSON-based engines.",
+          t: "Git Workflow",
+          d: "Branching strategy professionale, PR e gestione dei conflitti per un codice pulito.",
         },
         {
-          t: "Metodo",
-          d: "Approccio iterativo: Analisi → Progettazione → Implementazione → Test → Rilascio.",
+          t: "Cloud Deploy",
+          d: "Configurazione server Linux, Nginx, Gunicorn e certificati SSL per la messa in produzione.",
         },
         {
-          t: "Versatilità",
-          d: "Sviluppo cross-platform, dalle web app responsive ai motori di gioco mobile.",
+          t: "MVP Analysis",
+          d: "Approccio strutturato: Analisi → Design → Implementazione → Test → Release.",
         },
       ],
       CTA: "COLLABORIAMO",
+      HREF: "https://github.com/Lorenzoanzivino",
+      EXTERNAL: true,
     },
   },
+
   PROJECTS: {
     HEADER_SUBTITLE: "SELECTED CASE STUDIES",
     HEADER_TITLE: "Development & Design",
@@ -164,5 +173,21 @@ export const CONTENT = {
       { name: "Cookies", href: "#" },
     ],
     RIGHTS: "Tutti i diritti riservati.",
+  },
+  ABOUT: {
+    BADGE: "PROFILE",
+    TITLE: "Oltre lo \n schermo.",
+    DESCRIPTION:
+      "Application Cloud Developer specializzato nello sviluppo di applicazioni web e backend full-stack. Unisco la precisione dell'ingegneria software con la visione del design system, progettando soluzioni scalabili e manutenibili. Utilizzo metodologie moderne di sviluppo e deployment cloud per trasformare requisiti complessi in applicazioni affidabili e performanti.",
+    IMAGE: "/FotoPortFolio.jpeg",
+    BG_IMAGE:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+    TECH_TAGS: ["Python", "Java", "Javascript", "PostgreSQL", "Docker"],
+    METHODOLOGY: [
+      { label: "Analisi", icon: "🔍" },
+      { label: "Progettazione", icon: "📐" },
+      { label: "Implementazione", icon: "💻" },
+      { label: "Refactor & Test", icon: "🧪" },
+    ],
   },
 };

@@ -4,6 +4,7 @@ import { CONTENT } from "../../data/content";
 // 1. Centralizzazione dei Link (Dati strutturali + Testi da content.js)
 const getNavLinks = () => [
   { name: CONTENT.NAVBAR.LINK_HOME, href: "#" },
+  { name: CONTENT.NAVBAR.LINK_ABOUT, href: "#about" },
   { name: CONTENT.NAVBAR.LINK_EXPERTISE, href: "#services" },
   { name: CONTENT.NAVBAR.LINK_PROJECTS, href: "#portfolio" },
 ];
