@@ -1,45 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "../ui/Reveal";
-
-const projects = [
-  {
-    title: "MyTrainUp",
-    category: "Web App / UI Design",
-    description:
-      "Una piattaforma gestionale completa per Personal Trainer. L'obiettivo era semplificare il flusso di lavoro quotidiano: dalla gestione delle schede di allenamento alla fatturazione. Il design system è stato costruito su toni scuri ed energici per motivare l'utente.",
-    tech: ["React", "Python", "Dashboard Design"],
-    images: [
-      "/mytrainup/dashboard.webp",
-      "/mytrainup/nuovaScheda.webp",
-      "/mytrainup/diarioDiBordo.webp",
-      "/mytrainup/mieschede.webp",
-    ],
-    year: "2024",
-  },
-  {
-    title: "Ristorante La Vetrina",
-    category: "Brand Identity / Website",
-    description:
-      "Un progetto sensoriale. Ho curato il rebranding partendo dalla scelta della carta per il menù fisico fino alla fotografia dei piatti per il sito web. Il risultato è un'esperienza digitale che anticipa il profumo e l'atmosfera del locale.",
-    tech: ["Web Design", "Photography", "Print"],
-    images: [
-      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop",
-    ],
-    year: "2023",
-  },
-  {
-    title: "Studio Legale Rossi",
-    category: "Corporate Identity",
-    description:
-      "Rebranding per uno studio associato storico. La sfida era modernizzare l'immagine mantenendo l'autorevolezza istituzionale. Abbiamo optato per una palette minimalista, un logo tipografico senza tempo e un sito web istituzionale estremamente pulito.",
-    tech: ["Branding", "Editorial Design", "Wordpress"],
-    images: [
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
-    ],
-    year: "2023",
-  },
-];
+import { CONTENT } from "../../data/content";
 
 const ProjectMedia = ({ images, title, onExpand }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -89,7 +51,6 @@ const ProjectMedia = ({ images, title, onExpand }) => {
 const Projects = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Blocco scroll quando il lightbox è aperto
   useEffect(() => {
     document.body.style.overflow = selectedImage ? "hidden" : "unset";
   }, [selectedImage]);
@@ -109,16 +70,16 @@ const Projects = () => {
         <header className="container mx-auto px-4 md:px-6 mb-20 md:mb-32 text-center">
           <Reveal>
             <span className="text-brand-blue text-xs font-bold tracking-[0.4em] uppercase mb-4 block">
-              Selected Works
+              {CONTENT.PROJECTS.HEADER_SUBTITLE}
             </span>
             <h2 className="text-5xl md:text-8xl font-serif text-brand-navy">
-              Portfolio
+              {CONTENT.PROJECTS.HEADER_TITLE}
             </h2>
           </Reveal>
         </header>
 
         <div className="container mx-auto px-4 md:px-6 flex flex-col gap-24 md:gap-48">
-          {projects.map((project, index) => (
+          {CONTENT.PROJECTS.DATA.map((project, index) => (
             <article key={index} className="group">
               <Reveal delay={index * 0.1}>
                 <div
@@ -163,7 +124,7 @@ const Projects = () => {
                       className="group/link flex items-center gap-4 text-brand-navy text-xs md:text-sm font-bold tracking-[0.2em] uppercase transition-all"
                     >
                       <span className="border-b border-brand-navy/30 pb-1 group-hover/link:border-brand-navy transition-all">
-                        Voglio un progetto così
+                        {CONTENT.PROJECTS.PROJECT_LINK_TEXT}
                       </span>
                       <span className="transform group-hover/link:translate-x-2 transition-transform duration-300">
                         →
@@ -180,14 +141,14 @@ const Projects = () => {
           <Reveal>
             <blockquote className="mb-10 md:mb-16">
               <p className="text-slate-400 font-serif italic text-2xl md:text-4xl px-4 max-w-4xl mx-auto">
-                "Il design è l'intelligenza resa visibile."
+                {CONTENT.PROJECTS.FOOTER_QUOTE}
               </p>
             </blockquote>
             <a
               href="#contact"
               className="inline-block px-12 py-5 bg-brand-navy text-white text-xs font-bold tracking-[0.3em] uppercase shadow-2xl hover:bg-brand-blue hover:-translate-y-1 transition-all duration-300"
             >
-              Inizia un Progetto
+              {CONTENT.PROJECTS.FOOTER_CTA}
             </a>
           </Reveal>
         </footer>
