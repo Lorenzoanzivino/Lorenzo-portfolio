@@ -20,6 +20,8 @@ frontend/dist-ssr/
 frontend/*.local
 frontend/.env
 frontend/.env.local
+frontend/.env.development
+frontend/.env.production
 
 # --- LOGS & CACHE ---
 *.log

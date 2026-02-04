@@ -1,0 +1,114 @@
+Ecco un riepilogo tecnico completo di tutto il lavoro svolto sul tuo server IONOS. Puoi copiare questo testo in un file .txt (ad esempio config-server-portfolio.txt) per averlo sempre a portata di mano.
+🖥️ SCHEDA TECNICA: Server & Deploy Portfolio
+
+Informazioni Generali:
+
+    IP Server: 87.106.51.137
+
+    Sistema Operativo: Ubuntu 22.04 LTS
+
+    Web Server: Nginx (v1.18.0)
+
+    Dominio Futuro: lorenzoanzivinodev.it
+
+    Password: E5Bq5bA1
+
+Percorsi Filesystem (Cartelle):
+
+    Frontend (Statico): /var/www/portfolio/frontend
+
+    Backend (Python/Flask): /var/www/portfolio/backend
+
+    Configurazione Nginx: /etc/nginx/sites-available/portfolio
+
+    Servizio Backend: /etc/systemd/system/portfolio-backend.service
+
+Gestione Porte & Rete:
+
+    MyTrainUp: Porta 5000 (già esistente)
+
+    Portfolio Backend: Porta 5001 (Gunicorn)
+
+    Traffico Esterno: Porta 80 (HTTP) -> Gestito da Nginx
+
+🕹️ COMANDI DI GESTIONE (Cheat Sheet)
+
+Ecco i comandi da usare nel terminale SSH per gestire il progetto:
+
+1. Gestione del Backend (Servizio Systemd):
+Bash
+
+# Controlla se il backend è acceso
+systemctl status portfolio-backend
+
+# Riavvia il backend (necessario dopo ogni modifica ai file .py o .env)
+systemctl restart portfolio-backend
+
+# Ferma il backend
+systemctl stop portfolio-backend
+
+2. Gestione del Web Server (Nginx):
+Bash
+
+# Verifica che la configurazione sia corretta (senza errori di sintassi)
+nginx -t
+
+# Riavvia Nginx (necessario dopo aver modificato il file in sites-available)
+systemctl restart nginx
+
+3. Visualizzazione Log (Per Debug):
+Bash
+
+# Vedi cosa sta succedendo nel backend in tempo reale
+journalctl -u portfolio-backend -f
+
+# Vedi gli errori di Nginx relativi al portfolio
+tail -f /var/log/nginx/portfolio_error.log
+
+🚀 COSA FARE DOPO L'ACQUISTO DEL DOMINIO
+
+Appena hai acquistato lorenzoanzivinodev.it, segui questi 3 passaggi in ordine:
+Fase 1: Configurazione DNS (Pannello IONOS)
+
+Devi collegare il nome del dominio all'indirizzo del tuo server:
+
+    Entra nel pannello IONOS -> Domini & SSL.
+
+    Seleziona il nuovo dominio e vai in Impostazioni DNS.
+
+    Crea o modifica il Record A:
+
+        Host: @ (o lascia vuoto) -> Valore (IPv4): 87.106.51.137
+
+        Host: www -> Valore (IPv4): 87.106.51.137
+
+Fase 2: Pulizia Nginx (Sul Server)
+
+Dobbiamo togliere la "priorità temporanea" che abbiamo dato all'IP per far sì che MyTrainUp e Portfolio non litighino più:
+
+    Apri il file: sudo nano /etc/nginx/sites-available/portfolio
+
+    Cambia la riga listen 80 default_server; in listen 80; (togli default_server).
+
+    Salva (CTRL+O) ed esci (CTRL+X).
+
+    Riavvia: sudo systemctl restart nginx
+
+Fase 3: Attivazione HTTPS (Certificato SSL)
+
+È fondamentale per la professionalità e la sicurezza:
+
+    Lancia il comando:
+    Bash
+
+    sudo certbot --nginx -d lorenzoanzivinodev.it -d www.lorenzoanzivinodev.it
+
+    Scegli l'opzione per reindirizzare tutto il traffico su HTTPS (solitamente l'opzione 2).
+
+    Certbot aggiornerà automaticamente il file Nginx aggiungendo la crittografia.
+
+💡 Consiglio Pro
+
+Quando farai il deploy definitivo del dominio, ricordati di aggiornare il file .env nel backend (/var/www/portfolio/backend/.env) assicurandoti che ALLOWED_ORIGINS contenga il dominio reale con https://, altrimenti il form contatti potrebbe darti errore di CORS.
+
+Tutto salvato? Se hai dubbi su uno di questi passaggi mentre aspetti il dominio, chiedi pure!
