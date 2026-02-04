@@ -1,13 +1,9 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
+# Virtual environments
 venv/
 ENV/
+
+# Local env
 .env
 
 # Repomix
 repomix-*.md
-
-.pytest_cache/
-.DS_Store

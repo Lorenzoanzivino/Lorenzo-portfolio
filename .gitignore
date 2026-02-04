@@ -1,9 +1,22 @@
+# ========= Frontend =========
 node_modules/
-__pycache__/
-*.pyc
-*.log
 dist/
 build/
+
+# ========= Backend (Python) =========
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ========= Virtual env =========
+venv/
+ENV/
+
+# ========= Environment & OS =========
 .env
 .DS_Store
-.git
+
+# ========= Logs =========
+*.log
