@@ -1,10 +1,10 @@
-This file is a merged representation of a subset of the codebase, containing specifically included files and files not matching ignore patterns, combined into a single document by Repomix.
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
 
 <file_summary>
 This section contains a summary of this file.
 
 <purpose>
-This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+This file contains a packed representation of the entire repository's contents.
 It is designed to be easily consumable by AI systems for analysis, code review,
 or other automated processes.
 </purpose>
@@ -32,8 +32,6 @@ The content is organized as follows:
 <notes>
 - Some files may have been excluded based on .gitignore rules and Repomix's configuration
 - Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
-- Only files matching these patterns are included: backend/**/*.py, backend/requirements.txt, backend/run.py
-- Files matching these patterns are excluded: **/venv/**, **/__pycache__/**
 - Files matching patterns in .gitignore are excluded
 - Files matching default ignore patterns are excluded
 - Files are sorted by Git change count (files with more changes are at the bottom)
@@ -42,19 +40,23 @@ The content is organized as follows:
 </file_summary>
 
 <directory_structure>
-backend/
-  app/
-    routes/
-      contact.py
-    __init__.py
-  requirements.txt
-  run.py
+app/
+  routes/
+    contact.py
+  __init__.py
+tests/
+  conftest.py
+  test_contact.py
+.env.example
+.gitignore
+requirements.txt
+run.py
 </directory_structure>
 
 <files>
 This section contains the contents of the repository's files.
 
-<file path="backend/app/routes/contact.py">
+<file path="app/routes/contact.py">
 import os
 import smtplib
 import ssl
@@ -151,7 +153,7 @@ def send_contact_email():
         )
 </file>
 
-<file path="backend/app/__init__.py">
+<file path="app/__init__.py">
 import os
 import logging
 from flask import Flask
@@ -199,7 +201,92 @@ def create_app():
     return app
 </file>
 
-<file path="backend/requirements.txt">
+<file path="tests/conftest.py">
+import pytest
+from app import create_app
+
+
+@pytest.fixture
+def app():
+    # Creiamo l'app in modalità testing
+    app = create_app()
+    app.config.update(
+        {
+            "TESTING": True,
+        }
+    )
+    yield app
+
+
+@pytest.fixture
+def client(app):
+    # Forniamo un client per simulare le richieste HTTP
+    return app.test_client()
+</file>
+
+<file path="tests/test_contact.py">
+def test_contact_success(client):
+    """Test 1: Verifica che un invio con dati corretti funzioni."""
+    payload = {
+        "name": "Lorenzo Test",
+        "email": "test@lorenzo.it",
+        "message": "Questa è una prova tecnica di invio.",
+    }
+    response = client.post("/api/contact/", json=payload)
+
+    assert response.status_code == 200
+    assert response.json["status"] == "success"
+
+
+def test_contact_honeypot(client):
+    """Test 2: Verifica che il bot_check (Honeypot) blocchi l'invio (restituendo 200 ma ignorandolo)."""
+    payload = {
+        "name": "Bot",
+        "email": "bot@spam.com",
+        "message": "I am a bot",
+        "bot_check": "I am filling this hidden field",  # Il bot abbocca
+    }
+    response = client.post("/api/contact/", json=payload)
+
+    assert response.status_code == 200
+    assert response.json["message"] == "Messaggio inviato"
+    # Nota: restituiamo 200 per non far capire al bot di essere stato scoperto!
+
+
+def test_contact_invalid_email(client):
+    """Test 3: Verifica che un'email malformata venga rifiutata."""
+    payload = {
+        "name": "User",
+        "email": "email_sbagliata.com",
+        "message": "Messaggio di prova",
+    }
+    response = client.post("/api/contact/", json=payload)
+
+    assert response.status_code == 400
+    assert response.json["status"] == "error"
+</file>
+
+<file path=".env.example">
+# CONFIGURAZIONE FLASK
+FLASK_HOST=127.0.0.1
+FLASK_PORT=5000
+FLASK_DEBUG=True
+
+# SICUREZZA
+ALLOWED_ORIGINS=http://localhost:5173
+
+# CONFIGURAZIONE EMAIL
+MAIL_SERVER=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USE_TLS=True
+MAIL_USERNAME=tua_email@gmail.com
+MAIL_PASSWORD=tua_app_password
+
+# DESTINATARIO
+RECIPIENT_EMAIL=tua_email@gmail.com
+</file>
+
+<file path="requirements.txt">
 aniso8601==10.0.1
 blinker==1.9.0
 click==8.3.1
@@ -222,7 +309,7 @@ Werkzeug==3.1.4
 wrapt==2.0.1
 </file>
 
-<file path="backend/run.py">
+<file path="run.py">
 import os
 from app import create_app
 
@@ -240,6 +327,18 @@ if __name__ == "__main__":
     debug_mode = os.getenv("FLASK_DEBUG", "True").lower() in ("true", "1", "t")
 
     app.run(host=host, port=port, debug=debug_mode)
+</file>
+
+<file path=".gitignore">
+# Virtual environments
+venv/
+ENV/
+
+# Local env
+.env
+
+# Repomix
+repomix-*.md
 </file>
 
 </files>

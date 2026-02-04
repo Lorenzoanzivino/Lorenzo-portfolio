@@ -113,4 +113,10 @@ Lavoro seguendo un workflow rigoroso: Analisi → Progettazione → Implementazi
 
 Questo portfolio è la prova tangibile del mio impegno nel trasformare idee complesse in prodotti digitali eleganti e funzionali.
 
-[Email](mailto:lorenzoanzivinodigital@gmail.com) • [LinkedIn](https://https://www.linkedin.com/in/lorenzo-anzivino-0a95b92ab/) • [Portfolio Live](https://daCaricareAncora.it)
+[Email](mailto:lorenzoanzivinodigital@gmail.com) • [LinkedIn](https://www.linkedin.com/in/lorenzo-anzivino-dev) • [Portfolio Live](https://daCaricareAncora.it)
+
+---
+
+## 📄 Licenza
+
+Questo progetto è sotto licenza MIT - vedi il file [LICENSE](LICENSE) per i dettagli.
