@@ -13,6 +13,9 @@ Informazioni Generali:
 
     Password: E5Bq5bA1
 
+    1. COMANDO DEPLOY: chmod +x deploy.sh
+    2. LANCIARE DEPLOY: ./deploy.sh
+
 Percorsi Filesystem (Cartelle):
 
     Frontend (Statico): /var/www/portfolio/frontend

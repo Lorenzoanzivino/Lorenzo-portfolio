@@ -76,51 +76,58 @@ export const CONTENT = {
     },
   },
 
+  // src/data/content.js
+
   PROJECTS: {
     HEADER_SUBTITLE: "SELECTED CASE STUDIES",
     HEADER_TITLE: "Development & Design",
+    // Sfondo cinematico scuro (puoi cambiare il file in /public/project.jpg)
+    BG_IMAGE:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
     PROJECT_LINK_TEXT: "ANALISI TECNICA",
     FOOTER_QUOTE: '"Il software è una combinazione di arte e ingegneria."',
     FOOTER_CTA: "APRI UNA COLLABORAZIONE",
     DATA: [
       {
         title: "MyTrainUp",
-        category: "Full-Stack Web App",
+        subtitle: "L'Ecosistema Fitness Digitale",
+        category: "Full-Stack Application",
         description:
-          "Piattaforma gestionale per Personal Trainer. Architettura progettata per l'ottimizzazione del workflow: dalla gestione dei piani di allenamento dinamici alla reportistica. Design system ad alte prestazioni ottimizzato per il monitoraggio dati.",
-        tech: ["React 19", "Python Flask", "Dashboard Architecture"],
-        images: [
-          "/mytrainup/dashboard.webp",
-          "/mytrainup/nuovaScheda.webp",
-          "/mytrainup/diarioDiBordo.webp",
-          "/mytrainup/mieschede.webp",
-        ],
+          "Piattaforma gestionale per personal trainer. Il cuore del sistema è un motore JSON-based che genera piani di allenamento dinamici, integrando logica offline-first e monitoraggio dei progressi in tempo reale.",
+        tech: ["React 19", "Python Flask", "PostgreSQL", "JSON Engines"],
+        images: ["/mytrainup/iphoneWebApp.jpeg"],
         year: "2024",
+        href: "https://github.com/Lorenzoanzivino/MyTrainUp-public",
       },
       {
-        title: "Ristorante La Vetrina",
-        category: "Visual Identity System",
+        title: "Java Enterprise Lab",
+        subtitle: "Core Ecosystem & Design Patterns",
+        category: "Backend Development",
         description:
-          "Sviluppo di un ecosistema digitale integrato. Progettazione della visual identity e dell'architettura web orientata alla user experience, garantendo una coerenza totale tra interfacce digitali e materiali fisici.",
-        tech: ["UI/UX Design", "Web Architecture", "Visual Assets"],
+          "Sviluppo di moduli Java Enterprise focalizzati sulla scalabilità. Implementazione di design pattern avanzati e gestione delle dipendenze per la costruzione di backend robusti e manutenibili.",
+        tech: ["Java", "Spring Boot", "Eclipse", "Maven", "oop"],
         images: [
-          "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop",
         ],
-        year: "2023",
+        year: "In Sviluppo",
+        href: "https://github.com/Lorenzoanzivino/workspace_java_eclipse",
       },
       {
-        title: "Studio Legale Rossi",
-        category: "Corporate Infrastructure",
+        title: "Esercizi ITS Academy",
+        subtitle: "Cloud & Cyber Security Research",
+        category: "Infrastructure & Dev",
         description:
-          "Rebranding e sviluppo di una piattaforma istituzionale scalabile. Focus sulla chiarezza dell'infrastruttura informativa e sull'implementazione di un design system minimalista orientato all'autorevolezza digitale.",
-        tech: ["Brand Architecture", "Information Design", "Web Systems"],
+          "Laboratorio tecnico dedicato all'analisi di architetture cloud, database relazionali e sicurezza informatica. Una raccolta di implementazioni OOP e configurazioni di rete per sistemi moderni.",
+        tech: ["Cloud Arch", "SQL", "Cyber Security", "OOP"],
         images: [
-          "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
         ],
-        year: "2023",
+        year: "In Sviluppo",
+        href: "https://github.com/Lorenzoanzivino/Esercizi_ITS",
       },
     ],
   },
+
   CONTACT: {
     SIDEBAR_NAME: "Lorenzo Anzivino.",
     SIDEBAR_TAGLINE:
